@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Datatables by n1crack</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Datatables</h1>
+      <h2 class="project-tagline">This is a php library that handles server-side processing for DataTables which is plug-in for the jQuery Javascript library.</h2>
+      <a href="https://github.com/n1crack/Datatables" class="btn">View on GitHub</a>
+      <a href="https://github.com/n1crack/Datatables/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/n1crack/Datatables/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="datatables-library-for-php" class="anchor" href="#datatables-library-for-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Datatables library for PHP</h1>
+
+<p>This is a php library that handles server-side processing for DataTables which is plug-in for the jQuery Javascript library.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ol>
+<li>Easy to use. Generates json using only a few lines of code.<br>
+</li>
+<li>Editable custom variables with a callback function (or method) support.<br>
+</li>
+<li>Auto detects HTTP method (POST or GET)<br>
+</li>
+</ol>
+
+<h2>
+<a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install?</h2>
+
+<p>Installation via composer is supported.  <a href="http://https://getcomposer.org/">Composer</a>.</p>
+
+<p>Put a file named <code>composer.json</code> at the root of your project, containing this information: </p>
+
+<pre><code>{
+    "require": {
+       "ozdemir/datatables": "~1.*"
+    }
+}
+</code></pre>
+
+<p>And then run: <code>composer install</code></p>
+
+<p>Add the autoloader to your project:</p>
+
+<pre><code>&lt;?php
+
+require_once 'vendor/autoload.php'
+</code></pre>
+
+<p>You're now ready to begin using the Datatables php library. </p>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use?</h2>
+
+<p>A simple ajax example:</p>
+
+<pre><code>&lt;?php
+require_once 'vendor/autoload.php';
+
+use Ozdemir\Datatables\Datatables;
+use Ozdemir\Datatables\DB\MySQL;
+
+$config = [ 'host'     =&gt; 'localhost',
+            'post'     =&gt; '3306',
+            'username' =&gt; 'homestead',
+            'password' =&gt; 'secret',
+            'database' =&gt; 'sakila' ];
+
+$dt = new Datatables( new MySQL($config) );
+
+$dt-&gt;query("Select film_id, title, description from film");
+
+echo $dt-&gt;generate();
+</code></pre>
+
+<p>There are several examples in the <code>public/examples</code> folder.</p>
+
+<h4>
+<a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h4>
+
+<p>This is the list of available public methods.</p>
+
+<ul>
+<li>query (<code> $query : string </code>) <code>(required)</code><br>
+</li>
+<li>edit (<code>$column:string</code>, <code>$content:string</code>, <code>$matches:string</code>) <code>(optional)</code><br>
+</li>
+<li>generate ( ) <code>(required)</code><br>
+</li>
+</ul>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+
+<p>DataTables &gt; 1.10<br>
+PHP &gt; 5.3.7  </p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2015 Yusuf ÖZDEMİR</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/n1crack/Datatables">Datatables</a> is maintained by <a href="https://github.com/n1crack">n1crack</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
