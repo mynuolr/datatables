@@ -30,16 +30,17 @@
 <ol>
 <li>Easy to use. Generates json using only a few lines of code.<br>
 </li>
-<li>Editable custom variables with a callback function (or method) support.<br>
-</li>
-<li>Auto detects HTTP method (POST or GET)<br>
-</li>
+<li>Editable custom variables with callback function (or method) support.</li>
+<li>Editable columns with a closure function.</li>
+<li>Auto detects HTTP method (POST or GET)</li>
 </ol>
 
 <h2>
 <a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install?</h2>
 
 <p>Installation via composer is supported.  <a href="http://https://getcomposer.org/">Composer</a>.</p>
+
+<p>You don't have to install the composer to use the library. There is an example folder named 'nocomposer', but I highly recommend you to use composer.</p>
 
 <p>Put a file named <code>composer.json</code> at the root of your project, containing this information: </p>
 
@@ -97,7 +98,9 @@ echo $dt-&gt;generate();
 </li>
 <li>edit (<code>$column:string</code>, <code>$content:string</code>, <code>$matches:string</code>) <code>(optional)</code><br>
 </li>
-<li>generate ( ) <code>(required)</code><br>
+<li>editc (<code>$column:string</code>, <code>Closure:object</code>) <code>(optional)</code>
+</li>
+<li>generate ( ) <code>(required)</code>
 </li>
 </ul>
 
