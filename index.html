@@ -55,36 +55,34 @@
 
 <p>Add the autoloader to your project:</p>
 
-<pre><code>&lt;?php
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1">    <span class="pl-k">&lt;</span>?<span class="pl-c1">php</span></span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>vendor/autoload.php<span class="pl-pds">'</span></span></span></pre></div>
 
-require_once 'vendor/autoload.php'
-</code></pre>
-
-<p>You're now ready to begin using the Datatables php library. </p>
+<p>You're now ready to begin using the Datatables php library.</p>
 
 <h2>
 <a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use?</h2>
 
 <p>A simple ajax example:</p>
 
-<pre><code>&lt;?php
-require_once 'vendor/autoload.php';
-
-use Ozdemir\Datatables\Datatables;
-use Ozdemir\Datatables\DB\MySQL;
-
-$config = [ 'host'     =&gt; 'localhost',
-            'post'     =&gt; '3306',
-            'username' =&gt; 'homestead',
-            'password' =&gt; 'secret',
-            'database' =&gt; 'sakila' ];
-
-$dt = new Datatables( new MySQL($config) );
-
-$dt-&gt;query("Select film_id, title, description from film");
-
-echo $dt-&gt;generate();
-</code></pre>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1">    <span class="pl-k">&lt;</span>?<span class="pl-c1">php</span></span>
+<span class="pl-s1">    <span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>vendor/autoload.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-k">use</span> <span class="pl-c1">Ozdemir\Datatables\Datatables</span>;</span>
+<span class="pl-s1">    <span class="pl-k">use</span> <span class="pl-c1">Ozdemir\Datatables\DB\MySQL</span>;</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-smi">$config</span> <span class="pl-k">=</span> [ <span class="pl-s"><span class="pl-pds">'</span>host<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>localhost<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>post<span class="pl-pds">'</span></span>     <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>3306<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>homestead<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>password<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>secret<span class="pl-pds">'</span></span>,</span>
+<span class="pl-s1">                <span class="pl-s"><span class="pl-pds">'</span>database<span class="pl-pds">'</span></span> <span class="pl-k">=&gt;</span> <span class="pl-s"><span class="pl-pds">'</span>sakila<span class="pl-pds">'</span></span> ];</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Datatables</span>( <span class="pl-k">new</span> <span class="pl-c1">MySQL</span>(<span class="pl-smi">$config</span>) );</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>query(<span class="pl-s"><span class="pl-pds">"</span>Select film_id, title, description from film<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>generate();</span></pre></div>
 
 <p>There are several examples in the <code>public/examples</code> folder.</p>
 
@@ -94,15 +92,42 @@ echo $dt-&gt;generate();
 <p>This is the list of available public methods.</p>
 
 <ul>
-<li>query (<code> $query : string </code>) <code>(required)</code><br>
+<li>query (<code> $query : string </code>) <code>(required)</code>
 </li>
-<li>edit (<code>$column:string</code>, <code>$content:string</code>, <code>$matches:string</code>) <code>(optional)</code><br>
+<li>edit (<code>$column:string</code>, <code>$content:string</code>, <code>$matches:string</code>) <code>(optional)</code>
 </li>
 <li>editc (<code>$column:string</code>, <code>Closure:object</code>) <code>(optional)</code>
 </li>
 <li>generate ( ) <code>(required)</code>
 </li>
 </ul>
+
+<h4>
+<a id="an-example-of-methods" class="anchor" href="#an-example-of-methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An example of methods</h4>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1">    <span class="pl-k">&lt;</span>?<span class="pl-c1">php</span></span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">Datatables</span>( <span class="pl-k">new</span> <span class="pl-c1">MySQL</span>(<span class="pl-smi">$config</span>) );</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>query(<span class="pl-s"><span class="pl-pds">"</span>Select id, name, email, address, plevel from users<span class="pl-pds">"</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>edit(<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>&lt;a href=<span class="pl-pds">'</span></span><span class="pl-c1">user</span><span class="pl-k">.</span><span class="pl-c1">php</span>?<span class="pl-c1">id</span><span class="pl-k">=</span>$<span class="pl-c1">1</span><span class="pl-s"><span class="pl-pds">'</span>&gt;edit&lt;/a&gt;<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>editc(<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$data</span>){</span>
+<span class="pl-s1">        <span class="pl-c">// return mail@mail.com to m***@mail.com</span></span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-c1">preg_replace</span>(<span class="pl-sr"><span class="pl-pds">'/</span>(?&lt;=.).(?=.<span class="pl-k">*</span>@)<span class="pl-pds">/u'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>*<span class="pl-pds">'</span></span>, <span class="pl-smi">$data</span>[<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>]);</span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>editc(<span class="pl-s"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$data</span>){</span>
+<span class="pl-s1">        <span class="pl-c">// check if user has authorized to see that</span></span>
+<span class="pl-s1">        <span class="pl-smi">$current_user_plevel</span> <span class="pl-k">=</span> <span class="pl-c1">4</span>;</span>
+<span class="pl-s1">        <span class="pl-k">if</span> (<span class="pl-smi">$current_user_plevel</span> <span class="pl-k">&gt;</span> <span class="pl-c1">2</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$current_user_plevel</span> <span class="pl-k">&gt;</span> <span class="pl-smi">$data</span>[<span class="pl-s"><span class="pl-pds">'</span>plevel<span class="pl-pds">'</span></span>]) {</span>
+<span class="pl-s1">            <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>you are not authorized to view this column<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">        }</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-smi">$data</span>[<span class="pl-s"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span>];</span>
+<span class="pl-s1">    });</span>
+<span class="pl-s1"></span>
+<span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>generate();</span></pre></div>
 
 <h2>
 <a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
