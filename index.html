@@ -28,11 +28,11 @@
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
 
 <ol>
-<li>Easy to use. Generates json using only a few lines of code.<br>
-</li>
-<li>Editable custom variables with callback function (or method) support.</li>
-<li>Editable columns with a closure function.</li>
+<li>Easy to use. Generates json using only a few lines of code.</li>
+<li>Editable columns with a closure function.  (new)</li>
 <li>Auto detects HTTP method (POST or GET)</li>
+<li>Supports mysql and sqlite for native php.</li>
+<li>Works with <a href="https://github.com/n1crack/Datatables/blob/master/public/examples/laravel/routes.php">laravel</a> and <a href="https://github.com/n1crack/Datatables/blob/master/public/examples/codeigniter3/Controller.php">codeigniter3</a>. (new)</li>
 </ol>
 
 <h2>
@@ -40,7 +40,7 @@
 
 <p>Installation via composer is supported.  <a href="http://https://getcomposer.org/">Composer</a>.</p>
 
-<p>You don't have to install the composer to use the library. There is an example folder named 'nocomposer', but I highly recommend you to use composer.</p>
+<p>You don't have to install the composer to use the library. There is an example in the folder named 'nocomposer', but I highly recommend you to use composer.</p>
 
 <p>Put a file named <code>composer.json</code> at the root of your project, containing this information: </p>
 
@@ -52,6 +52,8 @@
 </code></pre>
 
 <p>And then run: <code>composer install</code></p>
+
+<p>Or just run : <code>composer require ozdemir/datatables</code></p>
 
 <p>Add the autoloader to your project:</p>
 
@@ -84,7 +86,7 @@
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>generate();</span></pre></div>
 
-<p>There are several examples in the <code>public/examples</code> folder.</p>
+<p>There are several examples in the <a href="https://github.com/n1crack/Datatables/tree/master/public/examples">examples</a> folder.</p>
 
 <h4>
 <a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h4>
@@ -92,11 +94,9 @@
 <p>This is the list of available public methods.</p>
 
 <ul>
-<li>query (<code> $query : string </code>) <code>(required)</code>
+<li>query ( $query : string ) <code>(required)</code>
 </li>
-<li>edit (<code>$column:string</code>, <code>$content:string</code>, <code>$matches:string</code>) <code>(optional)</code>
-</li>
-<li>editc (<code>$column:string</code>, <code>Closure:object</code>) <code>(optional)</code>
+<li>edit ($column:string, Closure:object ) <code>(optional)</code>
 </li>
 <li>generate ( ) <code>(required)</code>
 </li>
@@ -110,14 +110,17 @@
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>query(<span class="pl-s"><span class="pl-pds">"</span>Select id, name, email, address, plevel from users<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>edit(<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>&lt;a href=<span class="pl-pds">'</span></span><span class="pl-c1">user</span><span class="pl-k">.</span><span class="pl-c1">php</span>?<span class="pl-c1">id</span><span class="pl-k">=</span>$<span class="pl-c1">1</span><span class="pl-s"><span class="pl-pds">'</span>&gt;edit&lt;/a&gt;<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>edit(<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$data</span>){</span>
+<span class="pl-s1">        <span class="pl-c">// return an edit link.</span></span>
+<span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">"</span>&lt;a href='user.php?id=<span class="pl-pds">"</span></span> <span class="pl-k">.</span> <span class="pl-smi">$data</span>[<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>] <span class="pl-k">.</span> <span class="pl-s"><span class="pl-pds">"</span>'&gt;edit&lt;/a&gt;<span class="pl-pds">"</span></span>;</span>
+<span class="pl-s1">    });</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>editc(<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$data</span>){</span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>edit(<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$data</span>){</span>
 <span class="pl-s1">        <span class="pl-c">// return mail@mail.com to m***@mail.com</span></span>
 <span class="pl-s1">        <span class="pl-k">return</span> <span class="pl-c1">preg_replace</span>(<span class="pl-sr"><span class="pl-pds">'/</span>(?&lt;=.).(?=.<span class="pl-k">*</span>@)<span class="pl-pds">/u'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>*<span class="pl-pds">'</span></span>, <span class="pl-smi">$data</span>[<span class="pl-s"><span class="pl-pds">'</span>email<span class="pl-pds">'</span></span>]);</span>
 <span class="pl-s1">    });</span>
 <span class="pl-s1"></span>
-<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>editc(<span class="pl-s"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$data</span>){</span>
+<span class="pl-s1">    <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>edit(<span class="pl-s"><span class="pl-pds">'</span>address<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$data</span>){</span>
 <span class="pl-s1">        <span class="pl-c">// check if user has authorized to see that</span></span>
 <span class="pl-s1">        <span class="pl-smi">$current_user_plevel</span> <span class="pl-k">=</span> <span class="pl-c1">4</span>;</span>
 <span class="pl-s1">        <span class="pl-k">if</span> (<span class="pl-smi">$current_user_plevel</span> <span class="pl-k">&gt;</span> <span class="pl-c1">2</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$current_user_plevel</span> <span class="pl-k">&gt;</span> <span class="pl-smi">$data</span>[<span class="pl-s"><span class="pl-pds">'</span>plevel<span class="pl-pds">'</span></span>]) {</span>
