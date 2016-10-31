@@ -12,35 +12,38 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Datatables</h1>
-      <h2 class="project-tagline">This is a php library that handles server-side processing for DataTables which is plug-in for the jQuery Javascript library.</h2>
-      <a href="https://github.com/n1crack/Datatables" class="btn">View on GitHub</a>
-      <a href="https://github.com/n1crack/Datatables/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/n1crack/Datatables/tarball/master" class="btn">Download .tar.gz</a>
+      <h2 class="project-tagline">PHP Library to handle server-side processing for Datatables, in a fast and simple way.</h2>
+      <a href="https://github.com/n1crack/datatables" class="btn">View on GitHub</a>
+      <a href="https://github.com/n1crack/datatables/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/n1crack/datatables/tarball/master" class="btn">Download .tar.gz</a>
     </section>
 
     <section class="main-content">
       <h1>
 <a id="datatables-library-for-php" class="anchor" href="#datatables-library-for-php" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Datatables library for PHP</h1>
 
-<p>This is a php library that handles server-side processing for DataTables which is plug-in for the jQuery Javascript library.</p>
+<p><a href="https://packagist.org/packages/ozdemir/datatables"><img src="https://poser.pugx.org/ozdemir/datatables/v/stable" alt="Latest Stable Version"></a> <a href="https://travis-ci.org/n1crack/datatables"><img src="https://travis-ci.org/n1crack/datatables.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/n1crack/datatables/blob/master/LICENCE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg" alt="license"></a> <a href="https://gitter.im/php-datatables/Lobby?utm_source=share-link&amp;utm_medium=link&amp;utm_campaign=share-link"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a> </p>
+
+<p>PHP Library to handle server-side processing for Datatables, in a fast and simple way.</p>
 
 <h2>
 <a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
 
 <ol>
 <li>Easy to use. Generates json using only a few lines of code.</li>
-<li>Editable columns with a closure function.  (new)</li>
+<li>Editable columns with a closure function.</li>
 <li>Auto detects HTTP method (POST or GET)</li>
 <li>Supports mysql and sqlite for native php.</li>
-<li>Works with <a href="https://github.com/n1crack/Datatables/blob/master/public/examples/laravel/routes.php">laravel</a> and <a href="https://github.com/n1crack/Datatables/blob/master/public/examples/codeigniter3/Controller.php">codeigniter3</a>. (new)</li>
+<li>Works with <a href="https://github.com/n1crack/datatables-examples/blob/master/other_examples/laravel.php">laravel</a> and <a href="https://github.com/n1crack/datatables-examples/blob/master/other_examples/codeigniter.php">codeigniter3</a>
+</li>
 </ol>
 
 <h2>
 <a id="how-to-install" class="anchor" href="#how-to-install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to install?</h2>
 
-<p>Installation via composer is supported.  <a href="http://https://getcomposer.org/">Composer</a>.</p>
+<p>Installation via composer is supported.  <a href="https://getcomposer.org/">Composer</a>.</p>
 
-<p>You don't have to install the composer to use the library. There is an example in the folder named 'nocomposer', but I highly recommend you to use composer.</p>
+<p>If you haven't start using composer, I highly recommend you to use it.</p>
 
 <p>Put a file named <code>composer.json</code> at the root of your project, containing this information: </p>
 
@@ -86,7 +89,7 @@
 <span class="pl-s1"></span>
 <span class="pl-s1">    <span class="pl-c1">echo</span> <span class="pl-smi">$dt</span><span class="pl-k">-&gt;</span>generate();</span></pre></div>
 
-<p>There are several examples in the <a href="https://github.com/n1crack/Datatables/tree/master/public/examples">examples</a> folder.</p>
+<p>There are some examples in <a href="https://github.com/n1crack/datatables-examples">here</a>.</p>
 
 <h4>
 <a id="methods" class="anchor" href="#methods" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Methods</h4>
@@ -141,30 +144,10 @@ PHP &gt; 5.3.7  </p>
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
-<p>The MIT License (MIT)</p>
-
-<p>Copyright (c) 2015 Yusuf ÖZDEMİR</p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</p>
+<p>Copyright (c) 2015 Yusuf ÖZDEMİR, released under <a href="https://github.com/n1crack/Datatables/blob/master/LICENCE">the MIT license</a></p>
 
       <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/n1crack/Datatables">Datatables</a> is maintained by <a href="https://github.com/n1crack">n1crack</a>.</span>
+        <span class="site-footer-owner"><a href="https://github.com/n1crack/datatables">Datatables</a> is maintained by <a href="https://github.com/n1crack">n1crack</a>.</span>
 
         <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
