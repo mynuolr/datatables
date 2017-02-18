@@ -93,12 +93,12 @@ class Datatables {
         }
 
         $search = [];
-        $searchinput = preg_replace("/\W+/", " ", $searchinput);
+        $searchinput = preg_replace('/\W+/u', " ", $searchinput);
         foreach (explode(' ',$searchinput) as $word) {
             $lookfor = [];
             foreach ($this->columns as $key => $column) {
                 if ($allcolumns[$key]['searchable'] == 'true') {
-                    $lookfor[] = $column . " LIKE BINARY '%" . $this->db->escape($word) . "%'";
+                    $lookfor[] = $column . " LIKE binary " . $this->db->escape($word) . "";
                 }
             }
             $search[] = "(".implode(" OR ", $lookfor) . ")";
@@ -123,7 +123,7 @@ class Datatables {
         {
             if ($key['search']['value'] <> "" and $key['searchable'] == 'true')
             {
-                $lookfor[] = $this->column($key['data']) . " LIKE BINARY '%" . $this->db->escape('%' . $key['search']['value'] . '%') . "%'";
+                $lookfor[] = $this->column($key['data']) . " LIKE " . $this->db->escape('%' . $key['search']['value'] . '%') . "";
             }
         }
 
