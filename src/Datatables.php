@@ -98,7 +98,7 @@ class Datatables {
             $lookfor = [];
             foreach ($this->columns as $key => $column) {
                 if ($allcolumns[$key]['searchable'] == 'true') {
-                    $lookfor[] = $column . " LIKE " . $this->db->escape($word) . "";
+                    $lookfor[] = $column . " LIKE BINARY '%" . $this->db->escape($word) . "%'";
                 }
             }
             $search[] = "(".implode(" OR ", $lookfor) . ")";
@@ -123,7 +123,7 @@ class Datatables {
         {
             if ($key['search']['value'] <> "" and $key['searchable'] == 'true')
             {
-                $lookfor[] = $this->column($key['data']) . " LIKE " . $this->db->escape('%' . $key['search']['value'] . '%') . "";
+                $lookfor[] = $this->column($key['data']) . " LIKE BINARY '%" . $this->db->escape('%' . $key['search']['value'] . '%') . "%'";
             }
         }
 
