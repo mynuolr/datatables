@@ -218,7 +218,7 @@ class Datatables {
                 }
             }
 
-            $formatted_data[] = $this->isIndexed($row);
+            $formatted_data[] = $row;
         }
 
         $response['draw'] = $this->input('draw');
