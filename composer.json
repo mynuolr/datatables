@@ -12,7 +12,9 @@
     }
   ],
   "autoload": {
-    "psr-4": {"Ozdemir\\Datatables\\": "src/"}
+    "psr-4": {
+      "Ozdemir\\Datatables\\": "src/"
+    }
   },
   "minimum-stability": "dev",
   "require-dev": {
