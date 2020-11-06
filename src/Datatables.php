@@ -84,6 +84,9 @@ class Datatables {
 
     protected function filterglobal()
     {
+        if (!isset($this->input('search')['value'])) {
+            return null;
+        }
         $searchinput = $this->input('search')['value'];
         $allcolumns = $this->input('columns');
 
